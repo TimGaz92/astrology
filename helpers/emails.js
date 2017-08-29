@@ -8,31 +8,32 @@ var testUser = {
 	}
 }
 
-nodemailer.createTestAccount(err, account){
-	var transporter = nodemailer.createTransport({
-		host:'smtp.ethereal.email',
-		port: 587,
-		secure: false,
-		auth: {
-			user: account.user,
-			pass: account.pass
-		}
-	});
-	var mailOptions = {
-		from: 'onlineAstrologer',
-		to: testUser.email,
-		subject: 'your daily horoscope',
-		text: testUser.sign.horoscope,
-		html: testUser.sign.horoscope
-	};
-	transporter.sendMail(mailOptions, error, info){
-		if (error) {
-			return console.log(error);
-		}
-		console.log('message sent: ' + info.messageId);
-		console.log('message sent to: ' + user.email);
-		console.log(nodemailer.getTestMessageUrl(info));
-	}	
 
+var transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    secure: false, 
+    auth: {
+        user: account.user,
+        pass: account.pass
+    }
+});
+
+// setup e-mail data
+var mailOptions = {
+    from: '"test" <myemail@gmail.com>', // sender address (who sends)
+    to: testUser.email, // list of receivers (who receives)
+    subject: 'your horoscope', // Subject line
+    text: testUser.sign.horoscope, // plaintext body
+    html: testUser.sign.horoscope
 };
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        return console.log(error);
+    }
+
+    console.log('Message sent: ' + info.response);
+});
 
