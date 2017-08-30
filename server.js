@@ -2,16 +2,24 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
-var mongoose = require("mongoose");
+//var mongoose = require("mongoose");
 var request = require("request");
 var cheerio = require("cheerio");
-var request = require("request");
+
+var session = require('express-session');
+var methodOverride = require('method-override');
+var passport = require('passport');
+var path = require('path');
+//var request = require("request");
 //call in ALL of the dependencies from the last scraper
 
 var app = express();
 
 var PORT = process.env.PORT || 3000;
 
+// imported files
+var userRoutes = require('./controllers/userController.js');
+var models = require('./models');
 
 app.use(logger("dev"));
 app.use(bodyParser.json());
@@ -24,17 +32,35 @@ app.use(express.static("public"));
 
 
 // MongoDB configuration 
-mongoose.connect("mongodb://localhost/astrologyDB");
-var db = mongoose.connection;
+// mongoose.connect("mongodb://localhost/astrologyDB");
+// var db = mongoose.connection;
 
-db.on("error", function(err) {
-  console.log("Mongoose Error: ", err);
-});
+// db.on("error", function(err) {
+//   console.log("Mongoose Error: ", err);
+// });
 
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
+// db.once("open", function() {
+//   console.log("Mongoose connection successful.");
+// });
 
+
+// passport
+app.use(session({
+  secret: 'super secret',
+  resave: true,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+// static folder
+app.use(express.static(path.join(__dirname + '/public')));
+app.use('/api', express.static(path.join(__dirname + '/public')));
+// routes
+app.use('/', userRoutes);
+//app.use('/api', apiRoutes);
+
+// passport strategy
+require('./config/passport/passport.js')(passport, models.user);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.get("/", function(req, res) {
@@ -407,6 +433,9 @@ app.get("/pisces/weekly", function(req, res){
 });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-app.listen(PORT, function() {
-  console.log("App listening on PORT: " + PORT);
+// setup server to sync models and listen
+models.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log('Server listening on PORT ' + PORT);
+  });
 });
