@@ -84,3 +84,9 @@ p {
     height: 400px;
   width: 400px;
 }
+#login-form{
+  float: right;
+}
+.btn-login{
+  background-color: green;
+}
