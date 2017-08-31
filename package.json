@@ -1,22 +1,25 @@
 {
-  "name": "astrology",
+  "name": "Astrology",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "public/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "build": "webpack -w"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Tim Gaz",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.2",
+    "nodemailer": "^4.1.0",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-router": "^2.4.1",
+    "request": "^2.81.0"
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.15.4",
-    "mongoose": "^4.11.8",
-    "morgan": "^1.8.2",
     "nodemailer": "^4.1.0",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.3",
@@ -28,8 +31,15 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
-    "request": "^2.81.0",
     "request-promise": "^4.2.1",
     "sequelize": "^4.3.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.13",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "webpack": "^1.13.1"
+
   }
 }
