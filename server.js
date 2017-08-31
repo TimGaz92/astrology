@@ -29,19 +29,9 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("public"));
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// MongoDB configuration 
-// mongoose.connect("mongodb://localhost/astrologyDB");
-// var db = mongoose.connection;
-
-// db.on("error", function(err) {
-//   console.log("Mongoose Error: ", err);
-// });
-
-// db.once("open", function() {
-//   console.log("Mongoose connection successful.");
-// });
+// global variable for new reading
+var reading = {};
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // passport
@@ -67,372 +57,45 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//sample route 
-app.get("/aries/daily", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=1", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-
-app.get("/aries/weekly", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign=1", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
+app.get("/horoscope", function(req, res) {
+  res.sendFile(__dirname + "/public/horoscope.html");
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-app.get("/taurus/daily", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=2", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
+app.get("/api", function(req, res) {
+    console.log("we got get/api - get a new reading");
+    var options = {
+        url: 'https://aztro.herokuapp.com/?sign=aries&day=today',
+        method: 'POST'
+    };
+ 
+    request(options, function(error, response, body){
+        if (!error && response.statusCode == 200){
+            console.log(body);
+            res.send(body);
+        }
+    })
+
 });
 
-app.get("/taurus/weekly", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign=2", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-app.get("/gemini/daily", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=3", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-
-app.get("/gemini/weekly", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign=3", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-app.get("/cancer/daily", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=4", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-
-app.get("/cancer/weekly", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign=4", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-////////////////////////////////////////////////////////////
-app.get("/leo/daily", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=5", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-
-app.get("/leo/weekly", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign=5", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-////////////////////////////////////////////////////////////
-app.get("/virgo/daily", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=6", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-
-app.get("/virgo/weekly", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign=6", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-////////////////////////////////////////////////////////////
-app.get("/libra/daily", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=7", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-
-app.get("/libra/weekly", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign=7", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-////////////////////////////////////////////////////////////
-app.get("/scorpio/daily", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=8", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-
-app.get("/scorpio/weekly", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign=8", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-////////////////////////////////////////////////////////////
-app.get("/sagittarius/daily", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=8", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-
-app.get("/sagittarius/weekly", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign=8", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-////////////////////////////////////////////////////////////
-
-app.get("/capricorn/daily", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=10", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-
-app.get("/capricorn/weekly", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign=10", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-////////////////////////////////////////////////////////////
 
 
-app.get("/aquarius/daily", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=11", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-
-app.get("/aquarius/weekly", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign=11", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-////////////////////////////////////////////////////////////
-
-app.get("/pisces/daily", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=12", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
-
-app.get("/pisces/weekly", function(req, res){
-	request("https://www.horoscope.com/us/horoscopes/general/horoscope-general-weekly.aspx?sign=12", function(error, response, html) {
-  		var $ = cheerio.load(html);
-  		var results = [];
-  		$("div.horoscope-content").each(function(i, element) {
-    	var horoscope = $(element).text();
-    		results.push({
-      		horoscope: horoscope
-    		});
-  		});
-  	console.log(results);
-	});
-	res.redirect('/');
-});
+function getNewReading(){
+    var options = {
+        url: 'https://aztro.herokuapp.com/?sign=aries&day=today',
+        method: 'POST'
+    };
+    function callback(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            reading = body;
+            return;
+        }
+    }
+    request(options, callback);
+    return;
+};
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // setup server to sync models and listen
 models.sequelize.sync().then(function() {
   app.listen(PORT, function() {
