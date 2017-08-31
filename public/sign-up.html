@@ -59,7 +59,23 @@
                                 <label for="password" class="sr-only">Password</label>
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Create a password">
                             </div>
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-6" id="gender">
+                                <label for="gender" class="sr-only">gender</label>
+                                <select class="form-control" placeholder="Your Sun Sign" id="gender" name="gender">
+                                    <option>Female</option>
+                                    <option>Male</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-3" id="birthmonth">
+                                <label for="birthmonth" class="sr-only">birthmonth</label>
+                                <input type="birthmonth" name="birthmonth" id="birthmonth" class="form-control" placeholder="MM">
+                            </div>
+                            <div class="form-group col-sm-3" id="birthdate">
+                                <label for="birthdate" class="sr-only">birthdate</label>
+                                <input type="birthdate" name="birthdate" id="birthdate" class="form-control" placeholder="DD">
+                            </div>
+                           
+                            <div class="form-group">
                                 <label for="sign_1" class="sr-only">Your Sun Sign</label>
                                 <select class="form-control" placeholder="Your Sun Sign" id="sign_1" name="sign_1">
                                     <option>Sun Sign</option>
@@ -77,24 +93,8 @@
                                     <option>pisces</option>
                                 </select>
                             </div>
-                            <div class="form-group col-sm-6">
-                                <label for="sign_1" class="sr-only">Your Sun Sign</label>
-                                <select class="form-control" placeholder="Your Sun Sign" id="sign_2" name="sign_2">
-                                    <option>Sun Sign</option>
-                                    <option>aries</option>
-                                    <option>taurus</option>
-                                    <option>gemini</option>
-                                    <option>cancer</option>
-                                    <option>leo</option>
-                                    <option>virgo</option>
-                                    <option>libra</option>
-                                    <option>scorpio</option>
-                                    <option>sagittarius</option>
-                                    <option>capricorn</option>
-                                    <option>aquarius</option>
-                                    <option>pisces</option>
-                                </select>
-                            </div>
+
+                     
                             <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Sign Up">
                         </form>
                         <a href="/login.html" class="forget" data-toggle="modal" data-target=".forget-modal">Already Have an Account? Go to Log-In</a>

@@ -84,3 +84,11 @@ p {
     height: 400px;
   width: 400px;
 }
+
+#gender {
+  padding-left: 0px;
+  padding-right: 7px;
+}
+#birthdate {
+  padding-left: 7px
+}
