@@ -44,7 +44,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 // static folder
 app.use(express.static(path.join(__dirname + '/public')));
-app.use('/api', express.static(path.join(__dirname + '/public')));
+// app.use('/api', express.static(path.join(__dirname + '/public')));
 // routes
 app.use('/', userRoutes);
 //app.use('/api', apiRoutes);
@@ -62,6 +62,7 @@ app.get("/horoscope", function(req, res) {
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.get("/api", function(req, res) {
+  debugger
     console.log("we got get/api - get a new reading");
     var options = {
         url: 'https://aztro.herokuapp.com/?sign=aries&day=today',
@@ -69,8 +70,10 @@ app.get("/api", function(req, res) {
     };
  
     request(options, function(error, response, body){
+      console.log("body", body);
         if (!error && response.statusCode == 200){
-            console.log(body);
+            // console.log(body);
+            // console.log(response.json());
             res.send(body);
         }
     })
@@ -79,20 +82,20 @@ app.get("/api", function(req, res) {
 
 
 
-function getNewReading(){
-    var options = {
-        url: 'https://aztro.herokuapp.com/?sign=aries&day=today',
-        method: 'POST'
-    };
-    function callback(error, response, body) {
-        if (!error && response.statusCode == 200) {
-            reading = body;
-            return;
-        }
-    }
-    request(options, callback);
-    return;
-};
+// function getNewReading(){
+//     var options = {
+//         url: 'https://aztro.herokuapp.com/?sign=aries&day=today',
+//         method: 'POST'
+//     };
+//     function callback(error, response, body) {
+//         if (!error && response.statusCode == 200) {
+//             reading = body;
+//             return;
+//         }
+//     }
+//     request(options, callback);
+//     return;
+// };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

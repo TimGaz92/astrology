@@ -16,9 +16,9 @@ var Main = React.createClass({
 
 
     handleclick: function(){
-      console.log("got the click"); //this works - TG
+      console.log("got the click"); 
       helper.getNewReading().then(function(newReading){
-        console.log(newReading.data);
+        // console.log(newReading.data);
         this.setState({results: {data: newReading.data}});
         // console.log(this); 
       }.bind(this));
