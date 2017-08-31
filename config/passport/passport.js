@@ -24,13 +24,22 @@ module.exports = function(passport, user) {
 				return done(null, false, { message: 'That username is already taken' });
 			} else {
 				var userPassword = generateHash(password);
-                 
+          
+                var birthdate= req.body.birthdate;
+                var birthmonth= req.body.birthmonth;
+                console.log("my birthmonth: "+ birthmonth);
+         
 				var userData = {
 					username: username,
 					password: userPassword,
 					email: req.body.email,
+
+					gender: req.body.gender,
 					sign_1: req.body.sign_1,
-					sign_2: req.body.sign_2
+					// zodiacsign: zodiacSign,
+					birthmonth: birthmonth,
+					birthdate: birthdate
+
 				};
                  console.log(userData);
 				User.create(userData).then(function(newUser, created) {

@@ -29,10 +29,10 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("public"));
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // global variable for new reading
 var reading = {};
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 // passport
 app.use(session({
@@ -44,7 +44,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 // static folder
 app.use(express.static(path.join(__dirname + '/public')));
+
 // app.use('/api', express.static(path.join(__dirname + '/public')));
+
 // routes
 app.use('/', userRoutes);
 //app.use('/api', apiRoutes);
@@ -57,6 +59,7 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 app.get("/horoscope", function(req, res) {
   res.sendFile(__dirname + "/public/horoscope.html");
 });

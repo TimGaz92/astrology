@@ -20,15 +20,24 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		sign_1: {
 			type: DataTypes.STRING,
-			allowNull:true
+			allowNull:false
 		},
-		sign_2: {
+		// zodiacsign: {
+		// 	type: DataTypes.STRING,
+		// 	allowNull:false
+		// },
+		birthdate: {
 			type: DataTypes.STRING,
-			allowNull: true
+			allowNull: false
 		},
-			sign_2: {
+		birthmonth: {
 			type: DataTypes.STRING,
-			allowNull: true
+			allowNull: false
+		},
+		gender: {
+			type: DataTypes.STRING,
+			allowNull: false
+
 		},
 		status: {
 			type: DataTypes.ENUM('active', 'inactive'),
