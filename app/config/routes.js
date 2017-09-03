@@ -36,12 +36,6 @@ module.exports = (
       {/* If user selects Child1 then show the appropriate component*/}
       <Route path="Child1" component={Child1} >
 
-        {/* Child1 has its own Grandchildren options */}
-        <Route path="GrandChild1" component={GrandChild1} />
-        <Route path="GrandChild2" component={GrandChild2} />
-
-        <IndexRoute component={GrandChild1} />
-
       </Route>
 
       {/* If user selects Child2 then show the appropriate component*/}

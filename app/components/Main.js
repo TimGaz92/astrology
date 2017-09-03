@@ -16,12 +16,15 @@ var Main = React.createClass({
 
 
     handleclick: function(){
-      console.log("got the click"); 
-      helper.getNewReading().then(function(newReading){
-        // console.log(newReading.data);
-        this.setState({results: {data: newReading.data}});
-        // console.log(this); 
-      }.bind(this));
+      console.log("got the click");
+      // helper.getCurrentUser().then(function(currentUser){
+
+          helper.getNewReading().then(function(newReading){
+            // console.log(newReading.data);
+            this.setState({results: {data: newReading.data}});
+            // console.log(this); 
+          }.bind(this));
+      // })
     },
 
     

@@ -4,18 +4,18 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 //var mongoose = require("mongoose");
 var request = require("request");
-var cheerio = require("cheerio");
+// var cheerio = require("cheerio");
 
 var session = require('express-session');
 var methodOverride = require('method-override');
 var passport = require('passport');
 var path = require('path');
 //var request = require("request");
-//call in ALL of the dependencies from the last scraper
 
 var app = express();
 
 var PORT = process.env.PORT || 3000;
+
 
 // imported files
 var userRoutes = require('./controllers/userController.js');
@@ -28,9 +28,10 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("public"));
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// global variable for new reading
-var reading = {};
+
+// --------------------
+// global variable for the current user
+var currentUser = {};
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -51,21 +52,24 @@ app.use('/', userRoutes);
 
 // passport strategy
 require('./config/passport/passport.js')(passport, models.user);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//--------------------------------
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 app.get("/horoscope", function(req, res) {
   res.sendFile(__dirname + "/public/horoscope.html");
 });
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
 app.get("/api", function(req, res) {
-  debugger
     console.log("we got get/api - get a new reading");
+    var signToGet = currentUser.sign_1;
+    console.log(signToGet);
+
     var options = {
-        url: 'https://aztro.herokuapp.com/?sign=aries&day=today',
+        url: 'https://aztro.herokuapp.com/?sign=' + signToGet + '&day=today',
         method: 'POST'
     };
  
@@ -80,7 +84,10 @@ app.get("/api", function(req, res) {
 
 });
 
-
+exports.getCurrentUser = function(userFromControler){
+  currentUser = userFromControler;
+  return
+};
 
 // function getNewReading(){
 //     var options = {
