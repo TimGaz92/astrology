@@ -14,7 +14,7 @@ var Child1 = React.createClass({
         <div className="col-lg-12">
           <div className="panel panel-primary">
             <div className="panel-heading">
-              <h3 className="panel-title">Child #1</h3>
+              <h3 className="panel-title">Your Horoscope Matches</h3>
             </div>
             <div className="panel-body">
               <p>I'm child 1!</p>
