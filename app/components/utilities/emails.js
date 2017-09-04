@@ -1,39 +1,35 @@
 
 var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 
 var testUser = {
-	email: 'timgaziano@gmail.com',
-	sign: {
-		horoscope: "test horoscope"
-	}
+    name: "test user",
+    email: '',
+    sign: {
+        horoscope: "test horoscope"
+    }
 }
 
-
-var transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
-    secure: false, 
-    auth: {
-        user: account.user,
-        pass: account.pass
+    var from = "Astrology Match Maker";
+    var message = testUser.sign.horoscope;
+    var to = testUser.email;
+    smtpTrans = nodemailer.createTransport({
+        service: 'Gmail', 
+          auth: {
+            password: "",
+            user: "matchmakerastrology@gmail.com"
+          }
+    });           
+    var mailOptions = {
+        from: from,
+        to: testUser.email, 
+        subject: testUser.name+' | new horoscope matches!',
+        text: message
     }
-});
-
-// setup e-mail data
-var mailOptions = {
-    from: '"test" <myemail@gmail.com>', // sender address (who sends)
-    to: testUser.email, // list of receivers (who receives)
-    subject: 'your horoscope', // Subject line
-    text: testUser.sign.horoscope, // plaintext body
-    html: testUser.sign.horoscope
-};
-
-// send mail with defined transport object
-transporter.sendMail(mailOptions, function(error, info){
-    if(error){
-        return console.log(error);
-    }
-
-    console.log('Message sent: ' + info.response);
-});
-
+    smtpTransport.sendMail(mailOptions, function(error, response){
+        if(error){
+            console.log(error);
+        }else{
+            res.redirect('/');
+        }
+    });
