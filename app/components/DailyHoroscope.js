@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Include React
 var React = require("react");
 // Include React
@@ -94,5 +94,5 @@ var Search = React.createClass({
 });
 
 // Export the component back for use in other files
->>>>>>> 40ff5ea7cf65288d6b76272e285add35ed5c4bea
+
 module.exports = Search;
