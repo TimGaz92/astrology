@@ -22,7 +22,7 @@ var browserHistory = router.browserHistory;
 var Main = require("../components/Main");
 var Search = require("../components/Search");
 var DailyHoroscope = require("../components/DailyHoroscope");
-var Saved = require("../components/Saved");
+//var Saved = require("../components/Saved");
 // Export the Routes
 module.exports = (
   // High level component is the Router component.
@@ -32,7 +32,7 @@ module.exports = (
      {/* If user selects Search or Saved show the appropriate component */}
       <Route path="Search" component={Search} />
       <Route path="DailySearch" component={DailyHoroscope} />
-      <Route path="Saved" component={Saved} />
+     {/* <Route path="Saved" component={Saved} /> */}
 
      {/* If user selects any other path... we get the Home Route */}
       <IndexRoute component={DailyHoroscope} /> 
