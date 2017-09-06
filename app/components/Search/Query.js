@@ -7,29 +7,33 @@ var Query=React.createClass({
 		return{
 			// search :"Aries",
 			// start:"today",
+			// maleData: {
+			// 	year: ""
+			// }
+			
 					
 			 maleData: {
-			    'date': "",
-			    'month': "",
-			    'year': [],
-			    'hour': "",
-			    'minute': "",
-			    'latitude': "",
-			    'longitude': "",
-			    'timezone': ""
-			}
+			    date: "25",
+			   month: "12",
+			   year: "1974",
+			    hour: "4",
+			    minute: "0",
+			    latitude: "25.123",
+			    longitude: "82.34",
+			    timezone: "5.5"
+			},
 
-				// create female data
-				//  femaleData: {
-				//     'date': "",
-				//     'month': "",
-				//     'year': 1992,
-				//     'hour': 12,
-				//     'minute': 10,
-				//     'latitude': 25.123,
-				//     'longitude': 82.34,
-				//     'timezone': 5.5
-				// }		
+				
+				 femaleData: {
+				    date: "27",
+				  month: "1",
+				   year: "1992",
+				   hour: "12",
+				    minute: "10",
+				    latitude: "25.123",
+				   longitude: "82.34",
+				   timezone: "5.5"
+				}		
 		};
 	},
   
@@ -44,25 +48,164 @@ var Query=React.createClass({
 		newState[event.target.id] = event.target.value;
 		this.setState(newState);
 	},
-		// updateSearch(event){
-		// console.log(event.target.value);
-
-		// this.setState({this.setState.maleData:{event.target.value}
-// 	handleMaleDateYearChange (e) {
-//   this.State({
-//     this.setState,
-//     maleData: {
-//      maleData.
-
-//       year: e.target.value
-//     }
-   // });
-   handleMaleDateYearChange: function (e) {
+		
+   handleMaleYearChange: function (e) {
 	console.log("CHANGES IN TEXT");
 
   this.setState({
     maleData: {
-      year: e.target.value
+    	year: e.target.value
+    }
+  });
+},
+
+ handleMaleDateChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    maleData: {
+    	date: e.target.value
+    }
+  });
+},
+
+ handleMaleMonthChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    maleData: {
+    	month: e.target.value
+    }
+  });
+},
+
+handleMaleHourChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    maleData: {
+    	hour: e.target.value
+    }
+  });
+},
+
+handleMaleMinuteChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    maleData: {
+    	Minute: e.target.value
+    }
+  });
+},
+
+handleMaleLatitudeChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    maleData: {
+    	latitude: e.target.value
+    }
+  });
+},
+
+handleMaleLongitudeChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    maleData: {
+    	longitude: e.target.value
+    }
+  });
+},
+
+handleMaleTimezoneChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    maleData: {
+    	timezone: e.target.value
+    }
+  });
+},
+
+
+ handleFemaleYearChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    femaleData: {
+    	year: e.target.value
+    }
+  });
+},
+
+ handleFemaleDateChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    femaleData: {
+    	date: e.target.value
+    }
+  });
+},
+
+ handleFemaleMonthChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    femaleData: {
+    	month: e.target.value
+    }
+  });
+},
+
+handleFemaleHourChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    femaleData: {
+    	hour: e.target.value
+    }
+  });
+},
+
+handleFemaleLongitudeChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    femaleData: {
+    	minute: e.target.value
+    }
+  });
+},
+
+handleFemaleLongitudeChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    femaleData: {
+    	latitude: e.target.value
+    }
+  });
+},
+
+handleFemaleLongitudeChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    femaleData: {
+    	longitude: e.target.value
+    }
+  });
+},
+
+handleFemaleTimezoneChange: function (e) {
+	console.log("CHANGES IN TEXT");
+
+  this.setState({
+    femaleData: {
+    	timezone: e.target.value
     }
   });
 },
@@ -103,11 +246,11 @@ var Query=React.createClass({
 				 		<h4 className=""><strong>Date</strong></h4>
 					 		<input
 					 		 type="number"
-					 		 value={this.state.maleData.date}
+					 		 value = {this.state.maleData.date}
 					 		 // onChange={this.updateSearch,bind(this)}/>
 					 		 className="form-control"
 					 		 id="date"
-					 		 onChange={this.handleChange}
+					 		 onChange={this.handleMaleDateChange}
 					 		 required/>   
 
 				 		<h4 className=""><strong>Month</strong></h4>
@@ -116,7 +259,7 @@ var Query=React.createClass({
 					 		 value={this.state.maleData.month}
 					 		 className="form-control"
 					 		 id="month"
-					 		 onChange={this.handleChange}
+					 		 onChange={this.handleMaleMonthChange}
 					 		 required/>   
 				 		<h4 className=""><strong>Year</strong></h4>
 					 		<input
@@ -124,7 +267,7 @@ var Query=React.createClass({
 					 		 value={this.state.maleData.year}
 					 		 className="form-control"
 					 		 id="year"
-					 		 onChange={this.handleMaleDateYearChange}
+					 		 onChange={this.handleMaleYearChange}
 					 		 required/>   
 				 		<h4 className=""><strong>Hour</strong></h4>
 					 		<input
@@ -132,7 +275,7 @@ var Query=React.createClass({
 					 		 value={this.state.maleData.hour}
 					 		 className="form-control"
 					 		 id="hour"
-					 		 onChange={this.handleChange}
+					 		 onChange={this.handleMaleHourChange}
 					 		 required/>   
 				 		<h4 className=""><strong>Minute</strong></h4>
 					 		<input
@@ -140,7 +283,7 @@ var Query=React.createClass({
 					 		 value={this.state.maleData.minute}
 					 		 className="form-control"
 					 		 id="minute"
-					 		 onChange={this.handleChange}
+					 		 onChange={this.handleMaleMinuteChange}
 					 		 required/>   
 				 		<h4 className=""><strong>Latitude</strong></h4>
 					 		<input
@@ -148,7 +291,7 @@ var Query=React.createClass({
 					 		 value={this.state.maleData.latitude}
 					 		 className="form-control"
 					 		 id="latitude"
-					 		 onChange={this.handleChange}
+					 		 onChange={this.handleMaleLatitudeChange}
 					 		 required/>   
 				 		<h4 className=""><strong>Longitude</strong></h4>
 					 		<input
@@ -156,7 +299,7 @@ var Query=React.createClass({
 					 		 value={this.state.maleData.longitude}
 					 		 className="form-control"
 					 		 id="longitude"
-					 		 onChange={this.handleChange}
+					 		 onChange={this.handleMaleLongitudeChange}
 					 		 required/>   
 				 		<h4 className=""><strong>Timezone</strong></h4>
 					 		<input
@@ -164,82 +307,82 @@ var Query=React.createClass({
 					 		 value={this.state.maleData.timezone}
 					 		 className="form-control"
 					 		 id="timezone"
-					 		 onChange={this.handleChange}
+					 		 onChange={this.handleMaleTimezoneChange}
 					 		 required/>   
 					 	</div>
 
 {/*====================================END OF MALE ===================================*/}
-{/*}
-				 	<div className="col-md-4">
+
+	 			 	<div className="col-md-4">
 				 	<h4 className=""><strong>FEMALE </strong></h4>
 				 		<h4 className=""><strong>Date</strong></h4>
 					 		<input
-// 					 		 type="integer"
-// 					 		 value={this.state.femaleData.date}
-// 					 		 className="form-control"
-// 					 		 id="date"
-// 					 		 onChange={this.handleChange}
-// 					 		 required/>   
+					 		 type="integer"
+					 		 value={this.state.femaleData.date}
+					 		 className="form-control"
+					 		 id="date"
+					 		 onChange={this.handleFemaleDateChange}
+					 		 required/>   
 
-// 				 		<h4 className=""><strong>Month</strong></h4>
-// 					 		<input
-// 					 		 type="integer"
-// 					 		 value={this.state.femaleData.month}
-// 					 		 className="form-control"
-// 					 		 id="month"
-// 					 		 onChange={this.handleChange}
-// 					 		 required/>   
-// 				 		<h4 className=""><strong>Year</strong></h4>
-// 					 		<input
-// 					 		 type="integer"
-// 					 		 value={this.state.femaleData.year}
-// 					 		 className="form-control"
-// 					 		 id="femaleData.year"
-// 					 		 onChange={this.handleChange}
-// 					 		 required/>   
-// 				 		<h4 className=""><strong>Hour</strong></h4>
-// 					 		<input
-// 					 		 type="integer"
-// 					 		 value={this.state.femaleData.hour}
-// 					 		 className="form-control"
-// 					 		 id="hour"
-// 					 		 onChange={this.handleChange}
-// 					 		 required/>   
-// 				 		<h4 className=""><strong>Minute</strong></h4>
-// 					 		<input
-// 					 		 type="integer"
-// 					 		 value={this.state.femaleData.minute}
-// 					 		 className="form-control"
-// 					 		 id="minute"
-// 					 		 onChange={this.handleChange}
-// 					 		 required/>   
-// 				 		<h4 className=""><strong>Latitude</strong></h4>
-// 					 		<input
-// 					 		 type="integer"
-// 					 		 value={this.state.femaleData.latitude}
-// 					 		 className="form-control"
-// 					 		 id="latitude"
-// 					 		 onChange={this.handleChange}
-// 					 		 required/>   
-// 				 		<h4 className=""><strong>Longitude</strong></h4>
-// 					 		<input
-// 					 		 type="integer"
-// 					 		 value={this.state.femaleData.longitude}
-// 					 		 className="form-control"
-// 					 		 id="longitude"
-// 					 		 onChange={this.handleChange}
-// 					 		 required/>   
-// 				 		<h4 className=""><strong>Timezone</strong></h4>
-// 					 		<input
-// 					 		 type="integer"
-// 					 		 value={this.state.femaleData.timezone}
-// 					 		 className="form-control"
-// 					 		 id="timezone"
-// 					 		 onChange={this.handleChange}
-// 					 		 required/>   
-// 					 	</div>
+				 		<h4 className=""><strong>Month</strong></h4>
+					 		<input
+					 		 type="integer"
+					 		 value={this.state.femaleData.month}
+					 		 className="form-control"
+					 		 id="month"
+					 		 onChange={this.handleFemaleMonthChange}
+					 		 required/>   
+				 		<h4 className=""><strong>Year</strong></h4>
+					 		<input
+					 		 type="integer"
+					 		 value={this.state.femaleData.year}
+					 		 className="form-control"
+					 		 id="femaleData.year"
+					 		 onChange={this.handleFemaleYearChange}
+					 		 required/>   
+				 		<h4 className=""><strong>Hour</strong></h4>
+					 		<input
+					 		 type="integer"
+					 		 value={this.state.femaleData.hour}
+					 		 className="form-control"
+					 		 id="hour"
+					 		 onChange={this.handleFemaleHourChange}
+					 		 required/>   
+				 		<h4 className=""><strong>Minute</strong></h4>
+					 		<input
+					 		 type="integer"
+					 		 value={this.state.femaleData.minute}
+					 		 className="form-control"
+					 		 id="minute"
+					 		 onChange={this.handleFemaleLongitudeChange}
+					 		 required/>   
+				 		<h4 className=""><strong>Latitude</strong></h4>
+					 		<input
+					 		 type="integer"
+					 		 value={this.state.femaleData.latitude}
+					 		 className="form-control"
+					 		 id="latitude"
+					 		 onChange={this.handleFemaleLongitudeChange}
+					 		 required/>   
+				 		<h4 className=""><strong>Longitude</strong></h4>
+					 		<input
+					 		 type="integer"
+					 		 value={this.state.femaleData.longitude}
+					 		 className="form-control"
+					 		 id="longitude"
+					 		 onChange={this.handleFemaleLongitudeChange}
+					 		 required/>   
+				 		<h4 className=""><strong>Timezone</strong></h4>
+					 		<input
+					 		 type="integer"
+					 		 value={this.state.femaleData.timezone}
+					 		 className="form-control"
+					 		 id="timezone"
+					 		 onChange={this.handleFemaleTimezoneChange}
+					 		 required/>   
+					 	</div>
 
-// {/*====================================END OF FEMALE ===================================*/}
+   {/*====================================END OF FEMALE ===================================*/}
 
 
 

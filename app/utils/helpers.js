@@ -35,8 +35,10 @@ var helper = {
 				        // console.log('Response has arrived from API server --');
 				        // console.log(result);
 				        var jsonResult = JSON.parse(result)
-				        // console.log("jsonResult");
-				        // console.log(jsonResult);
+				        console.log( maleJson);
+				        console.log( femaleJson);
+				         console.log("jsonResult");
+				         console.log(jsonResult);
 				        return callback(null, jsonResult);
 				    }
 				} // call back

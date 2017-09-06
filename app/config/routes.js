@@ -41,3 +41,4 @@ module.exports = (
 
    </Route>
   </Router>
+)

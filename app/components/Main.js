@@ -29,7 +29,7 @@ var Main = React.createClass({
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <Link className="navbar-brand" to="/">Horoscope</Link>
+                <Link className="navbar-brand" to="/DailySearch">Horoscope</Link>
                 <Link className="navbar-brand" to="/Search">Match</Link>
               </div>
 
@@ -68,4 +68,5 @@ var Main = React.createClass({
   }
 });
 
-// Export the module back to the route
+// Export
+module.exports =  Main;
