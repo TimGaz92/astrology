@@ -1,4 +1,17 @@
+/*
+TABLE OF CONTENTS
+----------------
+I. FONTS
+II. HTML BODY
+III. HEADERS
+IV. p and div classes 
+V. TEXT AND BUTTONS
+VI. SPECIAL OBJECTS 
+*/
 
+
+
+/*SECTION I*/
 .heading-font {
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
@@ -12,15 +25,17 @@
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
+/*SECTION II*/
 html,
 body {
   height: 100%;
   width: 100%;
 }
 body {
-  font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
-  background-color: #000066;
   color: #C0C0C0;
+  background: #000066; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(black, blue, white);
 
 }
 a {
@@ -34,6 +49,7 @@ a:focus {
   color: #fcbd20;
 }
 
+/*SECTION III*/
 h1,
 h2,
 h3,
@@ -44,12 +60,14 @@ h6 {
   font-weight: 200;
   letter-spacing: 1px;
 }
+/*SECTION IV*/
 p {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 20px;
 }
 
+/*SECTION V*/
 .text-primary {
   color: #fdcc52;
 }
@@ -73,6 +91,8 @@ p {
   letter-spacing: 2px;
   border-radius: 300px;
 }
+
+/*SECTION VI*/
 #loginContainer{
 	float: right;
 }
