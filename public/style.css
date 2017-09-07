@@ -2,7 +2,7 @@
 TABLE OF CONTENTS
 ----------------
 I. FONTS
-II. HTML BODY
+II. HTML BODY and react app
 III. HEADERS
 IV. p and div classes 
 V. TEXT AND BUTTONS
@@ -37,6 +37,11 @@ body {
   background: #000066; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(black, blue, white);
 
+}
+.app{
+  color: #C0C0C0;
+  background: #000066; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(black, blue, white);
 }
 a {
   -webkit-transition: all 0.35s;
@@ -90,6 +95,7 @@ p {
   text-transform: uppercase;
   letter-spacing: 2px;
   border-radius: 300px;
+  color:black;
 }
 
 /*SECTION VI*/
