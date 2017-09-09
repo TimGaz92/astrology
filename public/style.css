@@ -25,6 +25,9 @@ VI. SPECIAL OBJECTS
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+.aboutPoint{
+  color: black;
+}
 
 /*SECTION II*/
 html,

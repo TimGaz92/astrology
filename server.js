@@ -2,56 +2,35 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
-//var mongoose = require("mongoose");
 var request = require("request");
-// var cheerio = require("cheerio");
-
 var session = require('express-session');
 var methodOverride = require('method-override');
 var passport = require('passport');
-var path = require('path');
-//var request = require("request");
-
-// var jsdom = require("jsdom"); 
+var path = require('path'); 
 var jsdom = require("jsdom").jsdom;
 var doc = jsdom();
 var window = doc.defaultView;
 var $ = require('jquery')(window);
-
-// const jsdom = require("jsdom");
-// const { JSDOM } = jsdom;
-// const { window } = new JSDOM(`<!DOCTYPE html>`);
-// const $ = require('jQuery')(window);
-
-// var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
-
-// $ = require("jquery")(jsdom.jsdom().createWindow());
-
+//launch app
 var app = express();
-
+//select port
 var PORT = process.env.PORT || 3000;
-
-
 // imported files
 var userRoutes = require('./controllers/userController.js');
 var models = require('./models');
-
+//app config
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
 app.use(express.static("public"));
-
-// --------------------
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // global variable for the current user
 var currentUser = {};
 var currentAPIResults = {};
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// passport
+// passport user auth.
 app.use(session({
   secret: 'super secret',
   resave: true,
@@ -61,27 +40,30 @@ app.use(passport.initialize());
 app.use(passport.session());
 // static folder
 app.use(express.static(path.join(__dirname + '/public')));
-
 // routes
 app.use('/', userRoutes);
 //app.use('/api', apiRoutes);
-
 // passport strategy
 require('./config/passport/passport.js')(passport, models.user);
-
-//--------------------------------
-
+//------------------------------------------------------------------------------------------------------------
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
+app.get("/about", function(req, res) {
+  res.sendFile(__dirname + "/public/about.html");
+});
+
 
 app.get("/horoscope", function(req, res) {
   res.sendFile(__dirname + "/public/horoscope.html");
 });
 
+app.get("/DailySearch", function(req, res) {
+ res.sendFile(__dirname + "/public/horoscope.html");
+});
 
-// THis function takes the sign from current user, submits the API
-// then sends the result back to the front end
+
+// THis function takes the sign from current user, submits the API then sends the result back to the front end
 app.get("/api", function(req, res) {
     console.log("we got get/api - get a new reading");
     var signToGet = currentUser.sign_1;
@@ -106,13 +88,11 @@ app.get("/api", function(req, res) {
         }
     })
 });
-
-// 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// START OF ROUTES
 app.get("/match", function(req, res){
   console.log("in get new match");
   // build a database search here
-
   console.log(currentAPIResults);
   console.log(currentAPIResults.compatibility)
   models.user.findAll({
@@ -130,8 +110,13 @@ app.get("/match", function(req, res){
               // res.render(dbBurger);
               // res.json(dbBurger);
         });
-
 });
+//--------------------------------------
+// Any non API GET routes will be directed to our React App and handled by React Router
+app.get("*", function(req, res) {
+  res.sendFile(__dirname + "/public/horoscope.html");
+});
+
 
 // this function gets the current user object from the userControllers file
 exports.getCurrentUser = function(userFromControler){
@@ -140,8 +125,13 @@ exports.getCurrentUser = function(userFromControler){
 };
 
 
-//------------------------------------------
 
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // setup server to sync models and listen
 models.sequelize.sync().then(function() {
   app.listen(PORT, function() {

@@ -1,73 +1,73 @@
-// Include React
+
+// Include React as a dependency
 var React = require("react");
 // Including the Link component from React Router to navigate within our application without full page reloads
+// https://github.com/ReactTraining/react-router/blob/master/docs/API.md#link
 var Link = require("react-router").Link;
-var helper = require("./utilities/helper.js")
-var Child2 = require("./children/Child2");
-// var Child1 = require("./children/Child1");
 
+// Create the Main component
 var Main = React.createClass({
 
-    getInitialState: function(){
-      return {
-        results: {}
-      };
-    },
+ render: function() {
+
+   return (
+      // We can only render a single div. So we need to group everything inside of this main-container one
+      <div className="main-container">
+        <div className="container">
+          {/* Navbar */}
+          <nav className="navbar navbar-default" role="navigation">
+            <div className="container-fluid">
+              <div className="navbar-header">
+                <button
+                  type="button"
+                  className="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target=".navbar-ex1-collapse"
+                >
+                  <span className="sr-only">Toggle navigation</span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                </button>
+                <Link className="navbar-brand" to="/DailySearch">Horoscope</Link>
+                <Link className="navbar-brand" to="/Search">Match</Link>
+                <Link className="navbar-brand" to="/geocode">Geocode</Link>
+              </div>
+
+             <div className="collapse navbar-collapse navbar-ex1-collapse">
+                <ul className="nav navbar-nav navbar-right">
+                  {/* Using <Link> in place of <a> and "to" in place of "href" 
+                  <li><Link to="/search">Search</Link></li>
+                  <li><Link to="/saved">Saved Articles</Link></li>
+                */}
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+         {/* Jumbotron */}
+          <div className="jumbotron">
+            <h2 className="text-center"><strong>DivineSign Horoscope App </strong></h2>
+            <h3 className="text-center">Daily Horoscope And Match Making App</h3>
+          </div>
 
 
+         {/* Here we will deploy the sub components (Search or Saved */}
+          {/* These sub-components are getting passed as this.props.children */}
+          {this.props.children}
 
-    handleHoroscopeclick: function(){
-      console.log("got the horoscope click");
-      // helper.getCurrentUser().then(function(currentUser){
-
-          helper.getNewReading().then(function(newReading){
-            console.log(newReading.data);
-            this.setState({results: {data: newReading.data}});
-            // console.log(this); 
-          }.bind(this));
-      // })
-    },
-
-    handleMatchClick: function(){
-      console.log("got the match click");
-      // helper.getCurrentUser().then(function(currentUser){
-
-          helper.getNewMatch().then(function(newMatch){
-            console.log(newMatch);
-            this.setState({results: {data: newMatch.data}});
-            // console.log(this); 
-          }.bind(this));
-      // })
-    },
-
-    
-  // Here we render the function
-  render: function() {
-    
-
-    return (
-
-      <div className="container">
-        <div className="jumbotron">
-          <h2><strong>Horoscope</strong></h2>
-          <p><em>Show your horoscope</em></p>
-          <hr />
-          <p>
-            <button onClick={this.handleHoroscopeclick} className="btn btn-danger btn-lg">Show Horiscope</button>
-            <button onClick={this.handleMatchClick} className="btn btn-danger btn-lg">Find Match</button>
-          </p>
+         <footer>
+            <hr />
+            <p className="pull-right">
+              <i className="fa fa-github" aria-hidden="true"></i>
+              Proudly built using React.js
+            </p>
+          </footer>
         </div>
-
-        <div className="row">
-
-         <Child2 results={this.state.results} />
-
-        </div>
-
       </div>
     );
   }
 });
 
-// Export the component back for use in other files
-module.exports = Main;
+// Export
+module.exports =  Main;
