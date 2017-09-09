@@ -33,7 +33,7 @@ module.exports = (
       <Route path="/Search" component={Search} />
       <Route path="/DailySearch" component={DailyHoroscope} />
        <Route path="/geocode" component={geocode} />
-      {/*<Route path="Saved" component={Saved} />/*}
+      {/*<Route path="/Saved" component={Saved} />/*}
 
      {/* If user selects any other path... we get the Home Route */}
       <IndexRoute component={DailyHoroscope} /> 
