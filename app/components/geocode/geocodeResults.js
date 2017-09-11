@@ -17,17 +17,19 @@ var Results = React.createClass({
      // Each article thus reperesents a list group item with a known index
       return (
         <div key="55">
+        
           <li className="list-group-item">
             <h3>
               <span>
                 <em>Please use below results to get your match making </em> 
                </span>
             </h3>
+            <p> Your Sign: {this.props.results.docs.sign}</p>
             <p> Lat: {this.props.results.docs.lat}</p>
             <p> Lng: {this.props.results.docs.lng}</p>
             <p> Time Zone: {this.props.results.docs.TZ}</p>
 
-
+           
 
          </li>
 
@@ -39,8 +41,8 @@ var Results = React.createClass({
   renderContainer: function() {
     return (
       <div className="main-container">
-        <div className="row">
-          <div className="col-lg-12">
+
+          <div className="col-lg-3">
             <div className="panel panel-primary">
               <div className="panel-heading">
                 <h1 className="panel-title">
@@ -57,7 +59,7 @@ var Results = React.createClass({
               </div>
             </div>
           </div>
-        </div>
+
       </div>
     );
   },
@@ -67,7 +69,7 @@ var Results = React.createClass({
 
           return(
             <div className="main-container">
-              <div className = "row">
+
                 <div className="panel panel-primery">
                   <div className="panel-heading">
                       <h1 className= "panel-title"> <strong> <span className="glyphicon glyphicon-list.alt" aria-hidden="true"></span>Your Horoscope</strong>
@@ -80,7 +82,7 @@ var Results = React.createClass({
                             
                    </div>
                 </div>
-            </div>             
+       
         </div>
           );
         }

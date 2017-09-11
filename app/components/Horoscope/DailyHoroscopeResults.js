@@ -21,16 +21,16 @@ var Results = React.createClass({
           <li className="list-group-item">
             <h3>
               <span>
-                <em>{this.props.results.docs.description}</em> 
+                <em>{this.props.results.docs.data.description}</em> 
                </span>
             </h3>
-            <p>Date Published: {this.props.results.docs.current_date}</p>
-            <p> color: {this.props.results.docs.color}</p>
-            <p> compatibility: {this.props.results.docs.compatibility}</p>
-            <p> date_range: {this.props.results.docs.date_range}</p>
-            <p> lucky_number: {this.props.results.docs.lucky_number}</p>
-            <p> lucky_time: {this.props.results.docs.lucky_time}</p>
-            <p> mood: {this.props.results.docs.mood}</p>
+            <p>Date Published: {this.props.results.docs.data.current_date}</p>
+            <p> color: {this.props.results.docs.data.color}</p>
+            <p> compatibility: {this.props.results.docs.data.compatibility}</p>
+            <p> date_range: {this.props.results.docs.data.date_range}</p>
+            <p> lucky_number: {this.props.results.docs.data.lucky_number}</p>
+            <p> lucky_time: {this.props.results.docs.data.lucky_time}</p>
+            <p> mood: {this.props.results.docs.data.mood}</p>
 
 
          </li>
@@ -50,7 +50,7 @@ var Results = React.createClass({
                 <h1 className="panel-title">
                   <strong>
                     <i className="fa fa-list-alt"></i>
-                    Results
+                    Results for {this.props.results.docs.data.username}
                   </strong>
                 </h1>
               </div>

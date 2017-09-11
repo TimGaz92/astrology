@@ -6,43 +6,47 @@ var Query = require("./Search/Query");
 var helpers = require("../utils/helpers");
 
 var Results= require("./Search/Results");
+
+var GeoQuery = require("./geocode/geocodeQuery");
+var GeoResults = require("./geocode/geocodeResults");
+
 // Create the Header component
 var Search = React.createClass({
 	getInitialState: function(){
 		return{
-			results:{}
+			results:{},
+			GeoResults: {}
 		};
 	},
 
-	// setQuery: function(newQuery,newStart, newEnd){
+	setQuery: function(place, DOB,day, month){
 
-	// 	 helpers.getHoroscope(newQuery,newStart,newEnd).then(function(data) {
+		 console.log("GEO Address  returned data ->" + place );
+
+		 helpers.getGeocodeAPI(place, DOB,day, month).then(function(data) {
 		 
-	// 	 	//this.setState({ results : {docs: data.docs}});
-	// 	 	console.log("HORO returned data ->" );
-	// 	 	console.log(data);
-	// 	 	console.log("HORO  this data ->" );
-	// 	 	console.log(this);
+		 	console.log("HORO returned data ->" );
+		 	console.log(data);
+		 	console.log("HORO  this data ->" );
+		 	console.log(this);
 
-	// 	 	console.log("HORO  this.props data ->" );
-	// 	 	console.log(this.props);
+		 	console.log("HORO  this.props data ->" );
+		 	console.log(this.props);
 
-	// 	 	this.setState({ results : {docs: data}});
-	// 	 	console.log("results ->" + this.props.results)
-	// 	 }.bind(this));
-	// },
+		 	this.setState({ GeoResults : {docs: data}});
+		 	console.log("results ->" + this.props.results)
+		 }.bind(this));
+	},
+
 
 	setMatchQuery: function(maleJson,femaleJson){
 
 		 helpers.getMatchMakingResults(maleJson,femaleJson, 
 		 	function(error, data)
 		 	{
-		 	//.then(function(data) {
-		 
-		 	//this.setState({ results : {docs: data.docs}});
-
+		
 		 	this.setState({ results : {docs: data}});
-		 	console.log("returned data ->" );
+		 	console.log("in Search.js returned data ->" );
 		 	console.log(data);
 		 	console.log("this data ->" );
 		 	console.log(this);
@@ -51,19 +55,22 @@ var Search = React.createClass({
 		 	console.log(this.props);
 
 
-		 	console.log("results ->" + this.props.results)
+		 	console.log("OPOPOPO<<<<<<<>>>>>>>>>>results ->" + this.props.results)
 		 }.bind(this));
-		// }
-		// ) // helper 
+	
 
 	},
 	  render: function() {
 
     return (
-      <div className="main-container">
 
+      <div className="main-container">
+      		
       		<Query updateSearch={this.setMatchQuery}/>
       		<Results results={this.state.results} />
+      		<GeoQuery updateSearch={this.setQuery}/>
+      		<GeoResults results={this.state.GeoResults} />
+      	
       		
       </div>
    

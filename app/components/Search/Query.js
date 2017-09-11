@@ -1,5 +1,6 @@
 
 var React= require("react");
+
 // query component
 var Query=React.createClass({
 //set the intial components
@@ -7,25 +8,25 @@ var Query=React.createClass({
 		return{
 			
 			 maleData: {
-				    date: "",
-				   	month: "",
-				   	year: "",
-				    hour: "",
-				    minute: "",
-				    latitude: "",
-				    longitude: "",
+				    date: "01",
+				   	month: "02",
+				   	year: "1967",
+				    hour: "10",
+				    minute: "45",
+				    latitude: "22.5654",
+				    longitude: "17.888",
 				    timezone: "5.5"
 			},
 
 				
 				 femaleData: {
-					  date: "",
-					  month: "",
-					  year: "",
-					  hour: "",
-					  minute: "",
-					  latitude: "",
-					  longitude: "",
+					  date: "31",
+					  month: "12",
+					  year: "1977",
+					  hour: "05",
+					  minute: "05",
+					  latitude: "21.7654",
+					  longitude: "34.87654",
 					  timezone: "5.5"
 				}		
 		};
@@ -56,7 +57,7 @@ var Query=React.createClass({
 
 	handleSubmit : function(event) {
 		event.preventDefault();
-		console.log("Clicked");
+		console.log("in Query.js Clicked");
 		this.props.updateSearch(this.state.maleData, this.state.femaleData);
 	},
 	updateSearch(event){
@@ -72,7 +73,7 @@ var Query=React.createClass({
 				 {/* association of text box input with state values*/}
 				<form onSubmit={this.handleSubmit}>
 				 	<div className="form-group">
-				 	<div className="col-md-4">
+				 	<div className="col-md-6 maleForm">
 				 	<h4 className=""><strong>MALE </strong></h4>
 				 		<h4 className=""><strong>Date</strong></h4>
 					 		<input
@@ -118,7 +119,7 @@ var Query=React.createClass({
 					 		 required/>   
 				 		<h4 className=""><strong>Latitude</strong></h4>
 					 		<input
-					 		 type="number"
+					 		 type="float"
 					 		 value={this.state.maleData.latitude}
 					 		 className="form-control"
 					 		 id="latitude"
@@ -145,7 +146,7 @@ var Query=React.createClass({
 
 {/*====================================END OF MALE ===================================*/}
 
-	 			 	<div className="col-md-4">
+	 			 	<div className="col-md-6 femaleForm">
 				 	 <h4 className=""><strong>FEMALE </strong></h4>
 				 	 	<h4 className=""><strong>Date</strong></h4>
 					  		<input
@@ -214,13 +215,16 @@ var Query=React.createClass({
 					 		 className="form-control"
 					 		 id="timezone"
 					 		 onChange={this.handlefemaleChange}
-					 		 required/> */}  
+					 		 required/> */} 
+
+					 	{/* <button type="submit" > MATCH </button>  */}
+					 	<button className="btn btn-submit reactBtn" type="submit"> MIS or MATCH</button>
 					 	</div>
 
    {/*====================================END OF FEMALE ===================================*/}
-
-				 		 					 	
-					 	<button type="submit"> MATCH </button>
+   			
+				 		
+					 	
 					 </div>
 					</form>
 				</div>

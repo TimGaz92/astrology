@@ -39,12 +39,14 @@ body {
   color: #C0C0C0;
   background: #000066; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(black, blue, white);
+  background-attachment: fixed;
 
 }
 .app{
   color: #C0C0C0;
   background: #000066; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(black, blue, white);
+  background-attachment: fixed;
 }
 a {
   -webkit-transition: all 0.35s;
@@ -102,7 +104,26 @@ p {
   text-transform: uppercase;
   letter-spacing: 2px;
   border-radius: 300px;
-  color:black;
+  color: black;
+}
+.btn-submit{
+  color: black;
+  background-color: white;
+}
+.reactBtn{
+  color: black;
+}
+.DivyaDiv{
+  float: center;
+}
+.panel-body{
+  float:left;
+}
+.maleForm{
+  float:left;
+}
+.femaleform{
+  float: right;
 }
 
 /*SECTION VI*/

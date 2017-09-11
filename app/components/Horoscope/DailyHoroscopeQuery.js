@@ -1,14 +1,22 @@
 
-var React= require("react");
+var React = require("react");
+var helpers = require("../../utils/helpers.js");
 // query component
 var Query=React.createClass({
 //set the intial components
 	getInitialState: function() {
-		return{
-			sign :"Taurus",
-			period:"today"
-		};
+		helpers.getCurrentUser().then(function(currentUser){
+			console.log("in DailyHoroscopeQuery, getInitialState - currentUser");
+			console.log(currentUser.data.sign_1);
+			this.setState({sign: currentUser.data.sign_1});
+			console.log(this);
+		}.bind(this));
+			return{
+				period:"today",
+				sign: "Enter Your Sign",
+			};
 	},
+				 // currentUser.data.sign_1
 
 	handleChange: function(event) {
 		console.log("CHANGES IN TEXT");
@@ -19,11 +27,16 @@ var Query=React.createClass({
 	},
 	handleSubmit : function(event) {
 		event.preventDefault();
-		console.log("Clicked");
+		console.log("in DailyHoroscopeQuery.js handleSunbit Clicked");
 		this.props.updateSearch(this.state.sign, this.state.period);
 	},
 	// render the query
 	render: function() {
+		console.log("in DailyHoroscopeQuery, render");
+		console.log(this);
+		// if (!this.data){
+		// 	this.data.sign_1 = "Enter Your Sign"
+		// };
 		return(
 			<div className= "main-container">
 				{/*<div className="now">
@@ -61,7 +74,6 @@ var Query=React.createClass({
 						 	onChange={this.handleChange}
 						 	required/>
 
-					 	
 					 	<button type="submit">Show Horoscope  </button>
 					 </div>
 					</form>

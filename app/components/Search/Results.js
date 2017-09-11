@@ -11,12 +11,12 @@ var Results = React.createClass({
             return{ arrayofArticles:[] };
       },
         handleClick: function(item){
-          console.log('Clicked');
+          console.log('in Results.js Clicked');
         },
 
   // A helper method for mapping through our articles and outputting some HTML
   renderArticles: function() {
-    console.log("resuls---->" + this);
+    console.log("<-----()()()()()(resuls---->" + this);
     console.log(this);
    
      // Each article thus reperesents a list group item with a known index
@@ -44,7 +44,7 @@ var Results = React.createClass({
   renderContainer: function() {
     return (
       <div className="main-container">
-        <div className="row">
+       
           <div className="col-lg-12">
             <div className="panel panel-primary">
               <div className="panel-heading">
@@ -62,7 +62,7 @@ var Results = React.createClass({
               </div>
             </div>
           </div>
-        </div>
+        
       </div>
     );
   },
@@ -72,7 +72,8 @@ var Results = React.createClass({
 
           return(
             <div className="main-container">
-              <div className = "row">
+
+               <div className="col-lg-12">
                 <div className="panel panel-primery">
                   <div className="panel-heading">
                       <h1 className= "panel-title"> <strong> <span className="glyphicon glyphicon-list.alt" aria-hidden="true"></span>Results</strong>
@@ -80,12 +81,12 @@ var Results = React.createClass({
                   </div>
                   <div className="panel-body">
                                         <h3>
-                            <span className="text-center"><em>No Results yet</em></span>
+                            <span className="text-center"><em>No Results yet!!!!!</em></span>
                       </h3>
-                            
+                     </div>       
                    </div>
                 </div>
-            </div>             
+            
         </div>
           );
         }
