@@ -1,20 +1,18 @@
-
 // Include React
 var React = require("react");
 var Router=require('react-router');
-
 var helpers = require('../../utils/helpers');
 
 // Creating the Results component
 var Results = React.createClass({
   // Here we render the function
-      getInitialState:function(){
+  getInitialState:function(){
             return null;
-      },
+  },
+  
+ 
   // A helper method for mapping through our articles and outputting some HTML
   renderHoroscope: function() {
-    console.log("resuls---->" + this);
-    console.log(this);
      // Each article thus reperesents a list group item with a known index
       return (
         <div key="55">
@@ -31,13 +29,11 @@ var Results = React.createClass({
             <p> lucky_number: {this.props.results.docs.data.lucky_number}</p>
             <p> lucky_time: {this.props.results.docs.data.lucky_time}</p>
             <p> mood: {this.props.results.docs.data.mood}</p>
-
-
          </li>
-
        </div>
       );
- },
+  },
+
 
   // A helper method for rendering a container to hold all of our articles
   renderContainer: function() {
@@ -68,7 +64,6 @@ var Results = React.createClass({
       
   render: function() {
     if(!this.props.results.docs){
-
           return(
             <div className="main-container">
               <div className = "row">
@@ -81,20 +76,15 @@ var Results = React.createClass({
                       <h3>
                             <span className="text-center"><em>No Results yet</em></span>
                       </h3>
-                            
-                   </div>
+                    </div>
                 </div>
             </div>             
         </div>
-          );
-        }
-      
-
-
-      return this.renderContainer();
+        );
+    }
+  return this.renderContainer();
   
    }
 });   
 // Export the component back for use in other files
 module.exports = Results;
-

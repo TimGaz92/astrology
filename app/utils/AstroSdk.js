@@ -1,7 +1,4 @@
-//var axios = require('axios'); 
-//var request = require('unirest');
 var http = require('http');
-
 var baseUrl = "http://api.vedicrishiastro.com/v1/";
 var userID =  "601148";
 var apiKey = "183fc5f62971813478411c524dcd8fab";
@@ -10,9 +7,7 @@ var apiKey = "183fc5f62971813478411c524dcd8fab";
 var getResponse = (resource, data, callback) => {
 	var url = baseUrl + resource;
 	var auth = "Basic " + new Buffer(userID + ":" + apiKey).toString('base64');
-	console.log("Calling API ....." + data)
-	console.log(data)
-
+	
 	var options = {
 	  "method": "POST",
 	  "hostname": "api.vedicrishiastro.com",
@@ -35,13 +30,11 @@ var getResponse = (resource, data, callback) => {
 	    var body = Buffer.concat(chunks);
 	    console.log(body.toString());
 	    return callback(null, body.toString());
-	    //return()
 	  });
 	});
 
 	req.write(JSON.stringify(data));
 	var rval = req.end();
-
 };
 
 var packageMatchMakingData = (maleBirthData, femaleBirthData) => {
@@ -71,11 +64,7 @@ var packageMatchMakingData = (maleBirthData, femaleBirthData) => {
 };
 
 
-
 var api = {
-	
-
-
 	matchMakingCall: (resource, maleBirthData, femaleBirthData, callback)=> {
 		var data = packageMatchMakingData(maleBirthData, femaleBirthData);
 		return getResponse(resource, data, callback);

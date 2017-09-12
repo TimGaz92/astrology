@@ -1,23 +1,20 @@
 // Include React
 var React = require("react");
 var Router=require('react-router');
-
 var helpers = require('../../utils/helpers');
 
 // Creating the Results component
 var Results = React.createClass({
   // Here we render the function
-      getInitialState:function(){
+    getInitialState:function(){
             return{ arrayofArticles:[] };
-      },
-        handleClick: function(item){
-          console.log('in Results.js Clicked');
-        },
+    },
 
-  // A helper method for mapping through our articles and outputting some HTML
-  renderArticles: function() {
-    console.log("<-----()()()()()(resuls---->" + this);
-    console.log(this);
+    handleClick: function(item){
+    },
+
+    // A helper method for mapping through our articles and outputting some HTML
+    renderArticles: function() {
    
      // Each article thus reperesents a list group item with a known index
       return (
@@ -27,15 +24,12 @@ var Results = React.createClass({
               <span>
                 {/*<em>{this.props.results.docs.description}</em> */}
                 <em>{this.props.results.docs.conclusion.match_report}</em>
-               </span>
+              </span>
             </h3>
             <p>ashtakoota: {this.props.results.docs.ashtakoota.received_points}</p>
             <p>manglik male points: {this.props.results.docs.manglik.male_percentage}</p>
             <p>manglik female points: {this.props.results.docs.manglik.female_percentage}</p>
-           
-
-         </li>
-
+          </li>
        </div>
       );
  },
@@ -62,17 +56,14 @@ var Results = React.createClass({
               </div>
             </div>
           </div>
-        
       </div>
     );
   },
       
   render: function() {
     if(!this.props.results.docs){
-
           return(
             <div className="main-container">
-
                <div className="col-lg-12">
                 <div className="panel panel-primery">
                   <div className="panel-heading">
@@ -86,16 +77,12 @@ var Results = React.createClass({
                      </div>       
                    </div>
                 </div>
-            
         </div>
           );
         }
       
-
-
       return this.renderContainer();
-  
-   }
+     }
 });   
 // Export the component back for use in other files
 module.exports = Results;

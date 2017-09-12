@@ -1,12 +1,9 @@
-
 // Include React
 var React = require("react");
 // Include React
 var Query = require("./Search/Query");
 var helpers = require("../utils/helpers");
-
 var Results= require("./Search/Results");
-
 var GeoQuery = require("./geocode/geocodeQuery");
 var GeoResults = require("./geocode/geocodeResults");
 
@@ -20,61 +17,30 @@ var Search = React.createClass({
 	},
 
 	setQuery: function(place, DOB,day, month){
-
-		 console.log("GEO Address  returned data ->" + place );
-
 		 helpers.getGeocodeAPI(place, DOB,day, month).then(function(data) {
-		 
-		 	console.log("HORO returned data ->" );
-		 	console.log(data);
-		 	console.log("HORO  this data ->" );
-		 	console.log(this);
-
-		 	console.log("HORO  this.props data ->" );
-		 	console.log(this.props);
-
-		 	this.setState({ GeoResults : {docs: data}});
-		 	console.log("results ->" + this.props.results)
+			this.setState({ GeoResults : {docs: data}});
 		 }.bind(this));
 	},
 
 
 	setMatchQuery: function(maleJson,femaleJson){
-
 		 helpers.getMatchMakingResults(maleJson,femaleJson, 
-		 	function(error, data)
-		 	{
-		
-		 	this.setState({ results : {docs: data}});
-		 	console.log("in Search.js returned data ->" );
-		 	console.log(data);
-		 	console.log("this data ->" );
-		 	console.log(this);
-
-		 	console.log("this.props data ->" );
-		 	console.log(this.props);
-
-
-		 	console.log("OPOPOPO<<<<<<<>>>>>>>>>>results ->" + this.props.results)
+		 	function(error, data){
+			this.setState({ results : {docs: data}});
 		 }.bind(this));
+	},
 	
 
-	},
-	  render: function() {
+	render: function() {
 
-    return (
-
-      <div className="main-container">
-      		
-      		<Query updateSearch={this.setMatchQuery}/>
-      		<Results results={this.state.results} />
-      		<GeoQuery updateSearch={this.setQuery}/>
-      		<GeoResults results={this.state.GeoResults} />
-      	
-      		
-      </div>
-   
-		);
+	    return (
+	      <div className="main-container">
+	      		<Query updateSearch={this.setMatchQuery}/>
+	      		<Results results={this.state.results} />
+	      		<GeoQuery updateSearch={this.setQuery}/>
+	      		<GeoResults results={this.state.GeoResults} />
+	      </div>
+	   	);
 	}
 });
 
