@@ -105,6 +105,7 @@ p {
   letter-spacing: 2px;
   border-radius: 300px;
   color: black;
+  background-color: white;
 }
 .btn-submit{
   color: black;

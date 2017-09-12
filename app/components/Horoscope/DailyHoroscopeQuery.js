@@ -74,7 +74,7 @@ var Query=React.createClass({
 						 	onChange={this.handleChange}
 						 	required/>
 
-					 	<button type="submit">Show Horoscope  </button>
+					 	<button className="btn btn-submit" type="submit">Show Horoscope  </button>
 					 </div>
 					</form>
 				</div>
