@@ -11,9 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.0",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
+    "horoscope": "^2.0.1",
     "jquery": "^3.2.1",
     "jsdom": "^7.2.2",
     "method-override": "^2.3.9",

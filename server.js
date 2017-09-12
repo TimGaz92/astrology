@@ -46,15 +46,13 @@ app.use('/', userRoutes);
 // passport strategy
 require('./config/passport/passport.js')(passport, models.user);
 //------------------------------------------------------------------------------------------------------------
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/public/index.html");
-});
+
 app.get("/about", function(req, res) {
   res.sendFile(__dirname + "/public/about.html");
 });
 
-
 app.get("/horoscope", function(req, res) {
+  console.log("in the /horoscope route");
   res.sendFile(__dirname + "/public/horoscope.html");
 });
 
@@ -62,11 +60,17 @@ app.get("/DailySearch", function(req, res) {
  res.sendFile(__dirname + "/public/horoscope.html");
 });
 
+app.get("/loggedinuser", function(req, res){
+  console.log("in get current user");
+  res.send(currentUser)
+});
+
 
 // THis function takes the sign from current user, submits the API then sends the result back to the front end
-app.get("/api", function(req, res) {
+app.post("/api", function(req, res) {
     console.log("we got get/api - get a new reading");
-    var signToGet = currentUser.sign_1;
+    console.log(req.body.newSign);
+    var signToGet = req.body.newSign;
     console.log(signToGet);
 
     var options = {
@@ -78,6 +82,8 @@ app.get("/api", function(req, res) {
       // currentAPIResults = body;
       console.log("body", body);
       currentAPIResults = $.parseJSON( body );
+      currentAPIResults.sign = currentUser.sign_1;
+      currentAPIResults.username = currentUser.username;
       console.log("un json");
       console.log(currentAPIResults);
       console.log("body mood", currentAPIResults.mood);

@@ -13,11 +13,11 @@ var Search = React.createClass({
 		};
 	},
 
-	setQuery: function(place, DOB){
+	setQuery: function(place, DOB,day, month){
 
-		 	console.log("GEO Address  returned data ->" + place );
+		 console.log("GEO Address  returned data ->" + place );
 
-		 helpers.getGeocodeAPI(place, DOB).then(function(data) {
+		 helpers.getGeocodeAPI(place, DOB,day, month).then(function(data) {
 		 
 		 	console.log("HORO returned data ->" );
 		 	console.log(data);

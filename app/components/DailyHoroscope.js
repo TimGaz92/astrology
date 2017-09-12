@@ -15,20 +15,25 @@ var Search = React.createClass({
 	},
 
 	setQuery: function(newSign, newPeriod){
-
+		console.log("in DailyHoroscope.js setQuery right before helper call");
 		 helpers.getHoroscope(newSign, newPeriod).then(function(data) {
 		 
 		 	//this.setState({ results : {docs: data.docs}});
 		 	console.log("HORO returned data ->" );
 		 	console.log(data);
-		 	console.log("HORO  this data ->" );
-		 	console.log(this);
-
-		 	console.log("HORO  this.props data ->" );
-		 	console.log(this.props);
+		 	console.log("HORO  user" );
+		 	console.log(data.data.username);
 
 		 	this.setState({ results : {docs: data}});
-		 	console.log("results ->" + this.props.results)
+		 	console.log("results ->" + this.props.results);
+		 	console.log(this.state.results);
+//-------
+		 	// console.log("HORO  this.props data ->" );
+		 	// console.log(this.props);
+
+		 	// this.setState({ results : {docs: data}});
+		 	// console.log("results ->" + this.props.results)
+//-------
 		 }.bind(this));
 	},
 	  render: function() {

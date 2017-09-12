@@ -1,28 +1,37 @@
 
 var axios = require('axios'); 
 var Astroapi = require('./AstroSdk'); 
-
+var getZodiacSign = require("horoscope");
 var helper = {
-	 getHoroscope: function(sign,period){
+	getHoroscope: function(newSign, newPeriod){
+	 	console.log("in helpers in getHoroscope");
+	 	console.log(newSign);
 
-	 	console.log("runQuery has been hit")
-		var QueryURL= 'https://aztro.herokuapp.com/?day='+period+'&sign='+sign;	
-		console.log("Query URL " + QueryURL);
+		return axios.post("/api", {newSign: newSign});
+		// return axios.get("/api", {newReading: newReading});
+	},
 
-	 return axios.post(QueryURL,{
-			}).then(function(results){
-				console.log("Axios HORO Results", results);
-				return results.data;
-		});
-},
+//-----------------
+	getCurrentUser: function(currentuser){
+		return axios.get("/loggedinuser", {currentuser: currentuser} );
+	},
 
-	 getGeocodeAPI: function(address, dob){
+	getNewMatch: function(newMatch){
+		return axios.get("/match", {newMatch: newMatch});
+	},
+//--------------------
+
+
+	 getGeocodeAPI: function(address, dob,day,month){
+
+	 	var sign = getZodiacSign.getSign({"month": parseInt(month), "day": parseInt(day)});
+	 	console.log("your sign is ===>"  + sign);
 
 	 	console.log("getGeocodeAPI has been hit")
 		var QueryURL= 'https://maps.googleapis.com/maps/api/geocode/json?address='+encodeURIComponent(address)+'&key=AIzaSyCfYfZuZYiwlx4W9-vYYI0bCLILm-pj9hA';
 		console.log("Query URL " + QueryURL);
 
-	 return axios.get(QueryURL,{
+		return axios.get(QueryURL,{
 			}).then(function(results){
 				console.log("Axios GEo Results", results.data.results["0"].geometry.location);
 				////return results.data.results["0"].geometry.location;
@@ -31,7 +40,8 @@ var helper = {
 				var DOB = "01-02-2004"; //dob;
 		        var llt = {"lat": lat,
 		        		"lng": lng,
-		        		"TZ":"5.5" }
+		        		"TZ":"5.5",
+		        		"sign" : sign }
 		        console.log(llt);	
 		        return llt;			
 				//var resultsData = this.getTimezoneResults(lat,lng,DOB, function (error, result){});
