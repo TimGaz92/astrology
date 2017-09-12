@@ -1,15 +1,15 @@
 {
-  "development": {
-    "username": "scandrews",
-    "password": "RutBud17",
+  "test": {
+    "username": "gys27fxl822i6ifv",
+    "password": "kdlye7h6iyarareu",
     "database": "astrology_db",
-    "host": "localhost",
+    "host": "p1us8ottbqwio8hv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
-  "test": {
+  "development": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
+    "password": "password",
+    "database": "astrology_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

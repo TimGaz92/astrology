@@ -48,8 +48,8 @@ var Main = React.createClass({
 
            {/* Jumbotron */}
             <div className="jumbotron">
-              <h2 className="text-center"><strong>DivineSign Horoscope App </strong></h2>
-              <h3 className="text-center">Daily Horoscope And Match Making App</h3>
+              <h2 className="text-center"><strong>DivineSign Horoscope</strong></h2>
+              <h3 className="text-center">Daily Horoscope And Match Making</h3>
             </div>
 
 

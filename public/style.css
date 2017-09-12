@@ -154,3 +154,9 @@ p {
 .btn-login{
   background-color: green;
 }
+#forgotpassword{
+  padding-left: 0;
+}
+#loginheader{
+  padding-left: 200px;
+}
