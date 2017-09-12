@@ -56,13 +56,7 @@ var Main = React.createClass({
           {/* These sub-components are getting passed as this.props.children */}
           {this.props.children}
 
-         <footer>
-            <hr />
-            <p className="pull-right">
-              <i className="fa fa-github" aria-hidden="true"></i>
-              Proudly built using React.js
-            </p>
-          </footer>
+         
         </div>
       </div>
     );

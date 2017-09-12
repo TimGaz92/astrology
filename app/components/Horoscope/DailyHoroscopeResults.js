@@ -77,7 +77,7 @@ var Results = React.createClass({
                       <h1 className= "panel-title"> <strong> <span className="glyphicon glyphicon-list.alt" aria-hidden="true"></span>Your Horoscope</strong>
                        </h1>
                   </div>
-                  <div className="panel-body">
+                  <div className="panel-body resultsPanel">
                       <h3>
                             <span className="text-center"><em>No Results yet</em></span>
                       </h3>
