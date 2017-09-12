@@ -202,7 +202,9 @@ var Query=React.createClass({
 					 		 required/>   
 				 	
 					 	{/* <button type="submit" > MATCH </button>  */}
-					 	<button className="btn btn-submit reactBtn" type="submit"> MIS or MATCH</button>
+					 	<button className="btn btn-submit reactBtn" type="submit">
+					 	<span className="glyphicon glyphicon-heart"> MATCH</span> 
+					 	</button>
 					 </div>
 
    {/*====================================END OF FEMALE ===================================*/}
