@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "scandrews",
-    "password": "RutBud17",
+    "username": "root",
+    "password": "",
     "database": "astrology_db",
     "host": "localhost",
     "dialect": "mysql"

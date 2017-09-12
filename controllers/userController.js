@@ -17,7 +17,7 @@ router.route('/sign-up')
 	})
 	.post(passport.authenticate('local-signup'), function(req, res){
 		console.log("in route signup req.user -");
-		console.log(req);
+		// console.log(req);
 		// pass the current user object to the server
 		server.getCurrentUser(req.user);
 		res.redirect ('/horoscope');

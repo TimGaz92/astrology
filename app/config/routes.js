@@ -1,49 +1,44 @@
 // Inclue the React library
+// Include the React library
 var React = require("react");
 
 // Include the react-router module
 var router = require("react-router");
 
-// Include the Route component for displaying individual routes
+// Include the Route component
 var Route = router.Route;
 
-// Include the Router component to contain all our Routes
-// Here where we can pass in some configuration as props
+//  Include the IndexRoute (catch-all route)
+var IndexRoute = router.IndexRoute;
+
+// Include the Router component
 var Router = router.Router;
 
-// Include the hashHistory prop to handle routing client side without a server
-// https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md#hashhistory
-var hashHistory = router.hashHistory;
-
-// Include the IndexRoute (catch-all route)
-var IndexRoute = router.IndexRoute;
+var browserHistory = router.browserHistory;
 
 // Reference the high-level components
 var Main = require("../components/Main");
-var Child1 = require("../components/children/Child1");
-var Child2 = require("../components/children/Child2");
-var GrandChild1 = require("../components/children/grandchildren/GrandChild1");
-var GrandChild2 = require("../components/children/grandchildren/GrandChild2");
+var Search = require("../components/Search");
+var DailyHoroscope = require("../components/DailyHoroscope");
+var geocode = require("../components/geocode");
+
 
 // Export the Routes
 module.exports = (
+  // High level component is the Router component.
+  <Router history={browserHistory}>
+    <Route path="/horoscope" component={Main}>
 
-  // The high level component is the Router component
-  <Router history={hashHistory}>
+     {/* If user selects Search or Saved show the appropriate component */}
+      <Route path="/Search" component={Search} />
+      <Route path="/DailySearch" component={DailyHoroscope} />
+       <Route path="/geocode" component={geocode} />
+      {/*<Route path="/Saved" component={Saved} />/*}
 
-    <Route path="/" component={Main}>
+     {/* If user selects any other path... we get the Home Route */}
+      <IndexRoute component={DailyHoroscope} /> 
+      {/*<IndexRoute component={Search} />*/}
 
-      {/* If user selects Child1 then show the appropriate component*/}
-      <Route path="Child1" component={Child1} >
-
-      </Route>
-
-      {/* If user selects Child2 then show the appropriate component*/}
-      <Route path="Child2" component={Child2} />
-
-      {/* If user selects any other path... we get the Home Route */}
-      <IndexRoute component={Child1} />
-
-    </Route>
+   </Route>
   </Router>
-);
+)
