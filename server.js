@@ -67,9 +67,10 @@ app.get("/loggedinuser", function(req, res){
 
 
 // THis function takes the sign from current user, submits the API then sends the result back to the front end
-app.get("/api", function(req, res) {
+app.post("/api", function(req, res) {
     console.log("we got get/api - get a new reading");
-    var signToGet = currentUser.sign_1;
+    console.log(req.body.newSign);
+    var signToGet = req.body.newSign;
     console.log(signToGet);
 
     var options = {

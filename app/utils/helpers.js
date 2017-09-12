@@ -3,10 +3,12 @@ var axios = require('axios');
 var Astroapi = require('./AstroSdk'); 
 var getZodiacSign = require("horoscope");
 var helper = {
-	getHoroscope: function(newReading){
-	 	console.log("in helpers in getHoroscope");
 
-		return axios.get("/api", {newReading: newReading});
+	getHoroscope: function(newSign, newPeriod){
+	 	console.log("in helpers in getHoroscope");
+	 	console.log(newSign);
+		return axios.post("/api", {newSign: newSign});
+		// return axios.get("/api", {newReading: newReading});
 	},
 
 //-----------------
