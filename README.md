@@ -19,6 +19,9 @@ The repo is on Github: https://github.com/TimGaz92/astrology.git
 
 ## Screenshots
 
+!(/images/login_360.png)
+!(/images/mainpage_720.png)
+!(/images/newuser_360.png)
 
 ## Technologies Used
 
