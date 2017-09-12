@@ -57,6 +57,6 @@ The repo is on Github: https://github.com/TimGaz92/astrology.git
 ##Authors
 
 	Tim Gaziano
-	Divia Jein
+	Divya Jain
 	Parendu Parikh
 	Steven Andrews

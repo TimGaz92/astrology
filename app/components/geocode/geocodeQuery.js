@@ -48,6 +48,7 @@ var Query=React.createClass({
 						 		 id="day"
 						 		 onChange={this.handleChange}
 						 		 required/>
+						 		 
 				 		<h4 className=""><strong>Month of Birth</strong></h4>
 						 		<input
 						 		 type="number"
