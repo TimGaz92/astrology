@@ -1,9 +1,9 @@
 {
   "test": {
-    "username": "gys27fxl822i6ifv",
-    "password": "kdlye7h6iyarareu",
+    "username": "snmd05onwn0nt1fo",
+    "password": "s33bi6cc20uaak91",
     "database": "astrology_db",
-    "host": "p1us8ottbqwio8hv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "host": "dyud5fa2qycz1o3v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "development": {
