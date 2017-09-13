@@ -23,12 +23,12 @@ var Results = React.createClass({
                </span>
             </h3>
             <p>Date Published: {this.props.results.docs.data.current_date}</p>
-            <p> color: {this.props.results.docs.data.color}</p>
-            <p> compatibility: {this.props.results.docs.data.compatibility}</p>
-            <p> date_range: {this.props.results.docs.data.date_range}</p>
-            <p> lucky_number: {this.props.results.docs.data.lucky_number}</p>
-            <p> lucky_time: {this.props.results.docs.data.lucky_time}</p>
-            <p> mood: {this.props.results.docs.data.mood}</p>
+            <p> Color: {this.props.results.docs.data.color}</p>
+            <p> Compatibility: {this.props.results.docs.data.compatibility}</p>
+            <p> Date range: {this.props.results.docs.data.date_range}</p>
+            <p> Lucky number: {this.props.results.docs.data.lucky_number}</p>
+            <p> Lucky time: {this.props.results.docs.data.lucky_time}</p>
+            <p> Mood: {this.props.results.docs.data.mood}</p>
          </li>
        </div>
       );
@@ -38,15 +38,15 @@ var Results = React.createClass({
   // A helper method for rendering a container to hold all of our articles
   renderContainer: function() {
     return (
-      <div className="main-container">
-        <div className="row">
-          <div className="col-lg-12">
+      // <div className="main-container">
+      //   <div className="row">
+          <div className="col-lg-8">
             <div className="panel panel-primary">
               <div className="panel-heading">
                 <h1 className="panel-title">
                   <strong>
                     <i className="fa fa-list-alt"></i>
-                    Results for {this.props.results.docs.data.username}
+                    Daily horoscope for {this.props.results.docs.data.username}
                   </strong>
                 </h1>
               </div>
@@ -57,21 +57,22 @@ var Results = React.createClass({
               </div>
             </div>
           </div>
-        </div>
-      </div>
+  
+      
     );
   },
       
   render: function() {
     if(!this.props.results.docs){
           return(
-            <div className="main-container">
-              <div className = "row">
+            // <div className="main-container">
+            //   <div className = "row">
+             <div className="col-md-8">
                 <div className="panel panel-primery">
                   <div className="panel-heading">
                       <h1 className= "panel-title"> <strong> <span className="glyphicon glyphicon-list.alt" aria-hidden="true"></span>Your Horoscope</strong>
                        </h1>
-                  </div>
+                 </div>
                   <div className="panel-body resultsPanel">
                       <h3>
                             <span className="text-center"><em>No Results yet</em></span>
@@ -79,7 +80,7 @@ var Results = React.createClass({
                     </div>
                 </div>
             </div>             
-        </div>
+        
         );
     }
   return this.renderContainer();

@@ -60,12 +60,13 @@ var Query=React.createClass({
 
 	render: function() {
 		return(
-			<div className= "main-container">
+			<div className= "col-md-8">
 			  <div className="panel-body">
+			   <div className="row">
 				 {/* association of text box input with state values*/}
 				<form onSubmit={this.handleSubmit}>
 				 	<div className="form-group">
-				 	<div className="col-md-6 maleForm">
+				 	<div className="col-md-4 maleForm">
 				 		<h4 className=""><strong>MALE </strong></h4>
 				 		<h4 className=""><strong>Date</strong></h4>
 					 		<input
@@ -132,10 +133,13 @@ var Query=React.createClass({
 				 	
 					 </div>
 
+					 <div className="col-md-3">
 
+                     <button className="btn btn-submit reactBtn" type="submit" id="matchbutton">CLICK TO MATCH ME</button>
+                     </div>
 {/*====================================END OF MALE ===================================*/}
 
-	 			 	<div className="col-md-6 femaleForm">
+	 			 	<div className="col-md-4 femaleForm">
 				 	 <h4 className=""><strong>FEMALE </strong></h4>
 
 				 	 	<h4 className=""><strong>Date</strong></h4>
@@ -202,13 +206,14 @@ var Query=React.createClass({
 					 		 required/>   
 				 	
 					 	{/* <button type="submit" > MATCH </button>  */}
-					 	<button className="btn btn-submit reactBtn" type="submit"> MIS or MATCH</button>
+					 
 					 </div>
 
    {/*====================================END OF FEMALE ===================================*/}
    						 							 	
 					 </div>
 					</form>
+					</div>
 				</div>
 			</div>
 			)

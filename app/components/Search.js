@@ -35,10 +35,13 @@ var Search = React.createClass({
 
 	    return (
 	      <div className="main-container">
+	       <div className="row">
 	      		<Query updateSearch={this.setMatchQuery}/>
-	      		<Results results={this.state.results} />
 	      		<GeoQuery updateSearch={this.setQuery}/>
 	      		<GeoResults results={this.state.GeoResults} />
+	      		<Results results={this.state.results} />
+	      		
+	      </div>
 	      </div>
 	   	);
 	}

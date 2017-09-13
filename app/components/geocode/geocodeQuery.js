@@ -23,15 +23,16 @@ var Query=React.createClass({
 	},
 	// render the query
 	render: function() {
-		return(
-			<div className= "row">
-					<div className="col-md-4 DivyaDiv">
-                    <div className="panel-body">
-
-				 {/* association of text box input with state values*/}
+		return (
+			
+				<div className= "col-md-4">
+					  
+                    <div className= "panel-body">
+             
 				<form onSubmit={this.handleSubmit}>
 				 	<div className="form-group">
 				 		<h4 className=""><strong>Place of Birth</strong></h4>
+				 		<h4 className=""><strong>City</strong></h4>
 						 		<input
 						 		 type="text"
 						 		 value={this.state.place}
@@ -58,13 +59,14 @@ var Query=React.createClass({
 						 		 onChange={this.handleChange}
 						 		 required/>
 					 	
-					 	<button className="btn btn-submit reactBtn" type="submit">Get GEO data  </button>
+					 	<button className="btn btn-submit reactBtn" type="submit" id="button">Get GEO data  </button>
 					 </div>
 					</form>
-				</div>
-			</div>
-		</div>
-		)
+			      </div>
+			    </div>
+			
+			  
+			)
 	}
 
 })

@@ -24,8 +24,10 @@ var Search = React.createClass({
 	render: function() {
 	    return (
 	        <div className="main-container">
+	        <div className="row">
 	      		<Query updateSearch={this.setQuery}/>
 	      		<Results results={this.state.results} />
+	        </div>
 	        </div>
 		);
 	}

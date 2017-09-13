@@ -33,13 +33,13 @@ var Query=React.createClass({
 	// render the query
 	render: function() {
 		return(
-			<div className= "main-container">
+			<div className= "col-md-4">
 				 <div className="panel-body">
 				 {/* association of text box input with state values*/}
 				
 				<form onSubmit={this.handleSubmit}>
 				 	<div className="form-group">
-				 		<h4 className=""><strong>Sign</strong></h4>
+				 		<h4 className=""><strong>Your Sign</strong></h4>
 					 			<input
 								type="text"
 					 		    value={this.state.sign}
@@ -58,7 +58,7 @@ var Query=React.createClass({
 							 	onChange={this.handleChange}
 							 	required/>
 
-					 	<button className="btn btn-submit" type="submit">Show Horoscope  </button>
+					 	<button className="btn btn-submit" type="submit" id="button">Show Horoscope  </button>
 					 </div>
 					</form>
 				</div>
