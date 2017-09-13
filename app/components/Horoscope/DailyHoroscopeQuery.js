@@ -39,7 +39,9 @@ var Query=React.createClass({
 				
 				<form onSubmit={this.handleSubmit}>
 				 	<div className="form-group">
+
 				 		<h4 className=""><strong>Your Sign</strong></h4>
+
 					 			<input
 								type="text"
 					 		    value={this.state.sign}

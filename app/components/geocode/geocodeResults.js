@@ -52,7 +52,7 @@ renderHoroscope: function() {
   render: function() {
     if(!this.props.results.docs){
 
-          return (
+         return (
                <div className="col-md-4">
 
              </div>

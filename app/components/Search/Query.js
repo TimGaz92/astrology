@@ -137,7 +137,7 @@ var Query=React.createClass({
 
                      <button className="btn btn-submit reactBtn" type="submit" id="matchbutton">CLICK TO MATCH ME</button>
                      </div>
-{/*====================================END OF MALE ===================================*/}
+
 
 	 			 	<div className="col-md-4 femaleForm">
 				 	 <h4 className=""><strong>FEMALE </strong></h4>
@@ -206,10 +206,10 @@ var Query=React.createClass({
 					 		 required/>   
 				 	
 					 	{/* <button type="submit" > MATCH </button>  */}
-					 
+
 					 </div>
 
-   {/*====================================END OF FEMALE ===================================*/}
+  
    						 							 	
 					 </div>
 					</form>

@@ -28,6 +28,12 @@ VI. SPECIAL OBJECTS
 .aboutPoint{
   color: black;
 }
+.list-group{
+  color:black;
+}
+.noResults{
+  color:black;
+}
 
 /*SECTION II*/
 html,

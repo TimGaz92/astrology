@@ -72,7 +72,9 @@ var Results = React.createClass({
                   </div>
                   <div className="panel-body">
                                         <h3>
+
                             <span className="text-center"><em></em></span>
+
                       </h3>
                      </div>       
                    </div>

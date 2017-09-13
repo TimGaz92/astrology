@@ -75,7 +75,7 @@ var Results = React.createClass({
                  </div>
                   <div className="panel-body resultsPanel">
                       <h3>
-                            <span className="text-center"><em>No Results yet</em></span>
+                            <span className="text-center"><em className="noResults">No Results yet</em></span>
                       </h3>
                     </div>
                 </div>
