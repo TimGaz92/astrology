@@ -7,25 +7,25 @@ var Query=React.createClass({
 		return{
 			
 			 maleData: {
-				    date: "01",
-				   	month: "02",
-				   	year: "1968",
-				    hour: "10",
-				    minute: "45",
-				    latitude: "22.5654",
-				    longitude: "17.888",
+				    date: "DD",
+				   	month: "MM",
+				   	year: "YYYY",
+				    hour: "HH",
+				    minute: "MM",
+				    latitude: "Copy Latitude from Geo",
+				    longitude: "Copy Longitude from Geo",
 				    timezone: "5.5"
 			},
 
 				
 				 femaleData: {
-					  date: "31",
-					  month: "12",
-					  year: "1977",
-					  hour: "05",
-					  minute: "05",
-					  latitude: "21.7654",
-					  longitude: "34.87654",
+				    date: "DD",
+				   	month: "MM",
+				   	year: "YYYY",
+				    hour: "HH",
+				    minute: "MM",
+				    latitude: "Copy Latitude from Geo",
+				    longitude: "Copy Longitude from Geo",
 					  timezone: "5.5"
 				}		
 		};
@@ -70,7 +70,7 @@ var Query=React.createClass({
 				 		<h4 className=""><strong>MALE </strong></h4>
 				 		<h4 className=""><strong>Date</strong></h4>
 					 		<input
-					 		 type="number"
+					 		 type="text"
 					 		 value = {this.state.maleData.date}
 					 		className="form-control"
 					 		 id="date"
@@ -79,7 +79,7 @@ var Query=React.createClass({
 
 					 	<h4 className=""><strong>Month</strong></h4>
 					 		<input
-					 		 type="number"
+					 		 type="text"
 					 		 value={this.state.maleData.month}
 					 		className="form-control"
 					 		 id="month"
@@ -88,7 +88,7 @@ var Query=React.createClass({
 
 					 	<h4 className=""><strong>Year</strong></h4>
 					 		<input
-					 		 type="number"
+					 		 type="text"
 					 		 value={this.state.maleData.year}
 					 		className="form-control"
 					 		 id="year"
@@ -97,7 +97,7 @@ var Query=React.createClass({
 
 					 	<h4 className=""><strong>Hour</strong></h4>
 					 		 <input
-					 		 type="number"
+					 		 type="text"
 					 		 value={this.state.maleData.hour}
 					 		className="form-control"
 					 		 id="hour"
@@ -106,7 +106,7 @@ var Query=React.createClass({
 
 				 		<h4 className=""><strong>Minute</strong></h4>
 					 		<input
-					 		 type="number"
+					 		 type="text"
 					 		 value={this.state.maleData.minute}
 					 		className="form-control"
 					 		 id="minute"
@@ -115,7 +115,7 @@ var Query=React.createClass({
 
 				 		<h4 className=""><strong>Latitude</strong></h4>
 					 		<input
-					 		 type="float"
+					 		 type="text"
 					 		 value={this.state.maleData.latitude}
 					 		className="form-control"
 					 		 id="latitude"
@@ -124,7 +124,7 @@ var Query=React.createClass({
 
 				 		<h4 className=""><strong>Longitude</strong></h4>
 					 		<input
-					 		 type="number"
+					 		 type="text"
 					 		 value={this.state.maleData.longitude}
 					 		className="form-control"
 					 		 id="longitude"
@@ -144,7 +144,7 @@ var Query=React.createClass({
 
 				 	 	<h4 className=""><strong>Date</strong></h4>
 					  		<input
-					 		 type="number"
+					 		 type="text"
 					 		 value={this.state.femaleData.date}
 					 		className="form-control"
 					 		 id="date"
@@ -153,7 +153,7 @@ var Query=React.createClass({
 
 				 		<h4 className=""><strong>Month</strong></h4>
 					 		<input
-					 		 type="number"
+					 		 type="text"
 					 		 value={this.state.femaleData.month}
 					 		className="form-control"
 					 		 id="month"
@@ -162,7 +162,7 @@ var Query=React.createClass({
 
 				 		<h4 className=""><strong>Year</strong></h4>
 					 		<input
-					 		 type="number"
+					 		 type="text"
 					 		 value={this.state.femaleData.year}
 					 		className="form-control"
 					 		 id="year"
@@ -171,7 +171,7 @@ var Query=React.createClass({
 
 				 		<h4 className=""><strong>Hour</strong></h4>
 					 		<input
-					 		 type="number"
+					 		 type="text"
 					 		 value={this.state.femaleData.hour}
 					 		className="form-control"
 					 		 id="hour"
@@ -180,7 +180,7 @@ var Query=React.createClass({
 
 				 		<h4 className=""><strong>Minute</strong></h4>
 					 		<input
-					 		 type="number"
+					 		 type="text"
 					 		 value={this.state.femaleData.minute}
 					 		className="form-control"
 					 		 id="minute"
@@ -189,7 +189,7 @@ var Query=React.createClass({
 
 				 		<h4 className=""><strong>Latitude</strong></h4>
 					 		<input
-					 		 type="number"
+					 		 type="text"
 					 		 value={this.state.femaleData.latitude}
 					 		className="form-control"
 					 		 id="latitude"
@@ -198,7 +198,7 @@ var Query=React.createClass({
 
 				 		<h4 className=""><strong>Longitude</strong></h4>
 					 		<input
-					 		 type="number"
+					 		 type="text"
 					 		 value={this.state.femaleData.longitude}
 					 		className="form-control"
 					 		 id="longitude"

@@ -30,7 +30,7 @@ var Main = React.createClass({
                   </button>
 
                   <Link className="navbar-brand" to="/DailySearch">Horoscope</Link>
-                  <Link className="navbar-brand" to="/Search">Match</Link>
+                  <Link className="navbar-brand" to="/Search">Match-Making</Link>
                   <Link className="navbar-brand" to="/geocode">Geocode</Link>
 
                 </div>

@@ -4,10 +4,10 @@ var Query=React.createClass({
 //set the intial components
 	getInitialState: function() {
 		return{
-			place :"New York",
-			DOB:"01/01/2001",
-			day: "01",
-			month: "12"
+			place : "Enter Your Birth Place",
+			DOB:"",
+			day: "DD",
+			month: "MM"
 		};
 	},
 
@@ -16,7 +16,7 @@ var Query=React.createClass({
 		newState[event.target.id] = event.target.value;
 		this.setState(newState);
 	},
-
+    //handleSumbit function
 	handleSubmit : function(event) {
 		event.preventDefault();
 		this.props.updateSearch(this.state.place, this.state.DOB,this.state.day,this.state.month);
@@ -42,7 +42,7 @@ var Query=React.createClass({
 
 				 		<h4 className=""><strong>Day of Birth</strong></h4>
 						 		<input
-						 		 type="number"
+						 		 type="text"
 						 		 value={this.state.day}
 					 		 className="form-control"
 						 		 id="day"
@@ -51,9 +51,9 @@ var Query=React.createClass({
 						 		 
 				 		<h4 className=""><strong>Month of Birth</strong></h4>
 						 		<input
-						 		 type="number"
+						 		 type="text"
 						 		 value={this.state.month}
-					 		 className="form-control"
+					 		  className="form-control"
 						 		 id="month"
 						 		 onChange={this.handleChange}
 						 		 required/>
