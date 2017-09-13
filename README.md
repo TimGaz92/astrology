@@ -25,8 +25,8 @@ The repo is on Github: https://github.com/TimGaz92/astrology.git
 
 ## Technologies Used
 
-  "dependencies": {
-	"axios": "^0.16.2",
+"dependencies": {
+    "axios": "^0.16.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.0",
     "express": "^4.15.4",
@@ -45,14 +45,14 @@ The repo is on Github: https://github.com/TimGaz92/astrology.git
     "react-router": "^2.4.1",
     "request": "^2.81.0",
     "sequelize": "^4.8.2"
-  },
-  "devDependencies": {
+},
+"devDependencies": {
     "babel-core": "^6.3.13",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "webpack": "^1.13.1"
-  }
+}
 
 ##Authors
 
