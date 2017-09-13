@@ -61,8 +61,8 @@ var Query=React.createClass({
 	render: function() {
 		return(
 			<div className= "col-md-8">
-			  <div className="panel-body">
-			   <div className="row">
+			  <div className="panel-body" id="seachpanelbody">
+			   
 				 {/* association of text box input with state values*/}
 				<form onSubmit={this.handleSubmit}>
 				 	<div className="form-group">
@@ -215,7 +215,7 @@ var Query=React.createClass({
 					</form>
 					</div>
 				</div>
-			</div>
+			
 			)
 	}
 
