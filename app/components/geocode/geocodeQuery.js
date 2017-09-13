@@ -4,7 +4,7 @@ var Query=React.createClass({
 //set the intial components
 	getInitialState: function() {
 		return{
-			place :"New York",
+			place :"City",
 			DOB:"01/01/2001",
 			day: "01",
 			month: "12"

@@ -16,14 +16,14 @@ renderHoroscope: function() {
       return (
         <div key="55">
           <li className="list-group-item">
-            <h3>
+            <h4>
               <span>
-                <em>Please use below results to get your match making </em> 
+                <em>Your Sign, Latitude, Longitude</em> 
                </span>
-            </h3>
+            </h4>
             <p> Your Sign: {this.props.results.docs.sign}</p>
-            <p> Lat: {this.props.results.docs.lat}</p>
-            <p> Lng: {this.props.results.docs.lng}</p>
+            <p> Latitude: {this.props.results.docs.lat}</p>
+            <p> Longitude: {this.props.results.docs.lng}</p>
             <p> Time Zone: {this.props.results.docs.TZ}</p>
          </li>
        </div>
@@ -54,17 +54,7 @@ renderHoroscope: function() {
 
           return (
                <div className="col-md-4">
-                <div className="panel panel-primery">
-                  <div className="panel-heading">
-                      <h1 className= "panel-title"> <strong> <span className="glyphicon glyphicon-list.alt" aria-hidden="true"></span>Your Horoscope</strong>
-                      </h1>
-                  </div>
-                  <div className="panel-body">
-                      <h3>
-                          <span className="text-center"><em>No Results yet</em></span>
-                      </h3>
-                  </div>
-              </div>
+
              </div>
           );
         }
