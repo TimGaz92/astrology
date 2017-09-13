@@ -25,8 +25,7 @@ var Query=React.createClass({
 	render: function() {
 		return (
 			
-				<div className= "col-md-4">
-					  
+				<div className= "col-md-4">  
                     <div className= "panel-body">
              
 				<form onSubmit={this.handleSubmit}>
